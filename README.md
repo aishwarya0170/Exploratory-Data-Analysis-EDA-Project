@@ -1,2 +1,127 @@
-# Exploratory-Data-Analysis-EDA-Project
-Use statistical summaries and visualizations Identify correlations and key influencing factors Present insights in a structured report
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "8b547181",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "FileNotFoundError",
+     "evalue": "[Errno 2] No such file or directory: 'dataset/ecommerce_sales.csv'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mFileNotFoundError\u001b[39m                         Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[1]\u001b[39m\u001b[32m, line 13\u001b[39m\n\u001b[32m      9\u001b[39m plt.style.use(\u001b[33m'fivethirtyeight'\u001b[39m)\n\u001b[32m     10\u001b[39m sns.set_theme(style=\u001b[33m\"whitegrid\"\u001b[39m)\n\u001b[32m     11\u001b[39m \n\u001b[32m     12\u001b[39m \u001b[38;5;66;03m# 1. DATA LOADING\u001b[39;00m\n\u001b[32m---> \u001b[39m\u001b[32m13\u001b[39m df = pd.read_csv(\u001b[33m'dataset/ecommerce_sales.csv'\u001b[39m)\n\u001b[32m     14\u001b[39m \n\u001b[32m     15\u001b[39m print(\u001b[33m\"--- Initial Overview ---\"\u001b[39m)\n\u001b[32m     16\u001b[39m print(df.info())\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\AppData\\Roaming\\Python\\Python314\\site-packages\\pandas\\io\\parsers\\readers.py:873\u001b[39m, in \u001b[36mread_csv\u001b[39m\u001b[34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, skip_blank_lines, parse_dates, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, low_memory, memory_map, float_precision, storage_options, dtype_backend)\u001b[39m\n\u001b[32m    861\u001b[39m kwds_defaults = _refine_defaults_read(\n\u001b[32m    862\u001b[39m     dialect,\n\u001b[32m    863\u001b[39m     delimiter,\n\u001b[32m   (...)\u001b[39m\u001b[32m    869\u001b[39m     dtype_backend=dtype_backend,\n\u001b[32m    870\u001b[39m )\n\u001b[32m    871\u001b[39m kwds.update(kwds_defaults)\n\u001b[32m--> \u001b[39m\u001b[32m873\u001b[39m \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[30;43m_read\u001b[39;49m\u001b[30;43m(\u001b[39;49m\u001b[30;43mfilepath_or_buffer\u001b[39;49m\u001b[30;43m,\u001b[39;49m\u001b[30;43m \u001b[39;49m\u001b[30;43mkwds\u001b[39;49m\u001b[30;43m)\u001b[39;49m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\AppData\\Roaming\\Python\\Python314\\site-packages\\pandas\\io\\parsers\\readers.py:300\u001b[39m, in \u001b[36m_read\u001b[39m\u001b[34m(filepath_or_buffer, kwds)\u001b[39m\n\u001b[32m    297\u001b[39m _validate_names(kwds.get(\u001b[33m\"\u001b[39m\u001b[33mnames\u001b[39m\u001b[33m\"\u001b[39m, \u001b[38;5;28;01mNone\u001b[39;00m))\n\u001b[32m    299\u001b[39m \u001b[38;5;66;03m# Create the parser.\u001b[39;00m\n\u001b[32m--> \u001b[39m\u001b[32m300\u001b[39m parser = \u001b[30;43mTextFileReader\u001b[39;49m\u001b[30;43m(\u001b[39;49m\u001b[30;43mfilepath_or_buffer\u001b[39;49m\u001b[30;43m,\u001b[39;49m\u001b[30;43m \u001b[39;49m\u001b[30;43m*\u001b[39;49m\u001b[30;43m*\u001b[39;49m\u001b[30;43mkwds\u001b[39;49m\u001b[30;43m)\u001b[39;49m\n\u001b[32m    302\u001b[39m \u001b[38;5;28;01mif\u001b[39;00m chunksize \u001b[38;5;129;01mor\u001b[39;00m iterator:\n\u001b[32m    303\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m parser\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\AppData\\Roaming\\Python\\Python314\\site-packages\\pandas\\io\\parsers\\readers.py:1645\u001b[39m, in \u001b[36mTextFileReader.__init__\u001b[39m\u001b[34m(self, f, engine, **kwds)\u001b[39m\n\u001b[32m   1642\u001b[39m     \u001b[38;5;28mself\u001b[39m.options[\u001b[33m\"\u001b[39m\u001b[33mhas_index_names\u001b[39m\u001b[33m\"\u001b[39m] = kwds[\u001b[33m\"\u001b[39m\u001b[33mhas_index_names\u001b[39m\u001b[33m\"\u001b[39m]\n\u001b[32m   1644\u001b[39m \u001b[38;5;28mself\u001b[39m.handles: IOHandles | \u001b[38;5;28;01mNone\u001b[39;00m = \u001b[38;5;28;01mNone\u001b[39;00m\n\u001b[32m-> \u001b[39m\u001b[32m1645\u001b[39m \u001b[38;5;28mself\u001b[39m._engine = \u001b[30;43mself\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43m_make_engine\u001b[39;49m\u001b[30;43m(\u001b[39;49m\u001b[30;43mf\u001b[39;49m\u001b[30;43m,\u001b[39;49m\u001b[30;43m \u001b[39;49m\u001b[30;43mself\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43mengine\u001b[39;49m\u001b[30;43m)\u001b[39;49m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\AppData\\Roaming\\Python\\Python314\\site-packages\\pandas\\io\\parsers\\readers.py:1904\u001b[39m, in \u001b[36mTextFileReader._make_engine\u001b[39m\u001b[34m(self, f, engine)\u001b[39m\n\u001b[32m   1902\u001b[39m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[33m\"\u001b[39m\u001b[33mb\u001b[39m\u001b[33m\"\u001b[39m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;129;01min\u001b[39;00m mode:\n\u001b[32m   1903\u001b[39m         mode += \u001b[33m\"\u001b[39m\u001b[33mb\u001b[39m\u001b[33m\"\u001b[39m\n\u001b[32m-> \u001b[39m\u001b[32m1904\u001b[39m \u001b[38;5;28mself\u001b[39m.handles = \u001b[30;43mget_handle\u001b[39;49m\u001b[30;43m(\u001b[39;49m\n\u001b[32m   1905\u001b[39m \u001b[30;43m    \u001b[39;49m\u001b[30;43mf\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m   1906\u001b[39m \u001b[30;43m    \u001b[39;49m\u001b[30;43mmode\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m   1907\u001b[39m \u001b[30;43m    \u001b[39;49m\u001b[30;43mencoding\u001b[39;49m\u001b[30;43m=\u001b[39;49m\u001b[30;43mself\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43moptions\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43mget\u001b[39;49m\u001b[30;43m(\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43mencoding\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43m,\u001b[39;49m\u001b[30;43m \u001b[39;49m\u001b[30;43;01mNone\u001b[39;49;00m\u001b[30;43m)\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m   1908\u001b[39m \u001b[30;43m    \u001b[39;49m\u001b[30;43mcompression\u001b[39;49m\u001b[30;43m=\u001b[39;49m\u001b[30;43mself\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43moptions\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43mget\u001b[39;49m\u001b[30;43m(\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43mcompression\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43m,\u001b[39;49m\u001b[30;43m \u001b[39;49m\u001b[30;43;01mNone\u001b[39;49;00m\u001b[30;43m)\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m   1909\u001b[39m \u001b[30;43m    \u001b[39;49m\u001b[30;43mmemory_map\u001b[39;49m\u001b[30;43m=\u001b[39;49m\u001b[30;43mself\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43moptions\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43mget\u001b[39;49m\u001b[30;43m(\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43mmemory_map\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43m,\u001b[39;49m\u001b[30;43m \u001b[39;49m\u001b[30;43;01mFalse\u001b[39;49;00m\u001b[30;43m)\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m   1910\u001b[39m \u001b[30;43m    \u001b[39;49m\u001b[30;43mis_text\u001b[39;49m\u001b[30;43m=\u001b[39;49m\u001b[30;43mis_text\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m   1911\u001b[39m \u001b[30;43m    \u001b[39;49m\u001b[30;43merrors\u001b[39;49m\u001b[30;43m=\u001b[39;49m\u001b[30;43mself\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43moptions\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43mget\u001b[39;49m\u001b[30;43m(\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43mencoding_errors\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43m,\u001b[39;49m\u001b[30;43m \u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43mstrict\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43m)\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m   1912\u001b[39m \u001b[30;43m    \u001b[39;49m\u001b[30;43mstorage_options\u001b[39;49m\u001b[30;43m=\u001b[39;49m\u001b[30;43mself\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43moptions\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43mget\u001b[39;49m\u001b[30;43m(\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43mstorage_options\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43m,\u001b[39;49m\u001b[30;43m \u001b[39;49m\u001b[30;43;01mNone\u001b[39;49;00m\u001b[30;43m)\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m   1913\u001b[39m \u001b[30;43m\u001b[39;49m\u001b[30;43m)\u001b[39;49m\n\u001b[32m   1914\u001b[39m \u001b[38;5;28;01massert\u001b[39;00m \u001b[38;5;28mself\u001b[39m.handles \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m\n\u001b[32m   1915\u001b[39m f = \u001b[38;5;28mself\u001b[39m.handles.handle\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\AppData\\Roaming\\Python\\Python314\\site-packages\\pandas\\io\\common.py:930\u001b[39m, in \u001b[36mget_handle\u001b[39m\u001b[34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)\u001b[39m\n\u001b[32m    925\u001b[39m \u001b[38;5;28;01melif\u001b[39;00m \u001b[38;5;28misinstance\u001b[39m(handle, \u001b[38;5;28mstr\u001b[39m):\n\u001b[32m    926\u001b[39m     \u001b[38;5;66;03m# Check whether the filename is to be opened in binary mode.\u001b[39;00m\n\u001b[32m    927\u001b[39m     \u001b[38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.\u001b[39;00m\n\u001b[32m    928\u001b[39m     \u001b[38;5;28;01mif\u001b[39;00m ioargs.encoding \u001b[38;5;129;01mand\u001b[39;00m \u001b[33m\"\u001b[39m\u001b[33mb\u001b[39m\u001b[33m\"\u001b[39m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;129;01min\u001b[39;00m ioargs.mode:\n\u001b[32m    929\u001b[39m         \u001b[38;5;66;03m# Encoding\u001b[39;00m\n\u001b[32m--> \u001b[39m\u001b[32m930\u001b[39m         handle = \u001b[30;43mopen\u001b[39;49m\u001b[30;43m(\u001b[39;49m\n\u001b[32m    931\u001b[39m \u001b[30;43m            \u001b[39;49m\u001b[30;43mhandle\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m    932\u001b[39m \u001b[30;43m            \u001b[39;49m\u001b[30;43mioargs\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43mmode\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m    933\u001b[39m \u001b[30;43m            \u001b[39;49m\u001b[30;43mencoding\u001b[39;49m\u001b[30;43m=\u001b[39;49m\u001b[30;43mioargs\u001b[39;49m\u001b[30;43m.\u001b[39;49m\u001b[30;43mencoding\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m    934\u001b[39m \u001b[30;43m            \u001b[39;49m\u001b[30;43merrors\u001b[39;49m\u001b[30;43m=\u001b[39;49m\u001b[30;43merrors\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m    935\u001b[39m \u001b[30;43m            \u001b[39;49m\u001b[30;43mnewline\u001b[39;49m\u001b[30;43m=\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43m\"\u001b[39;49m\u001b[30;43m,\u001b[39;49m\n\u001b[32m    936\u001b[39m \u001b[30;43m        \u001b[39;49m\u001b[30;43m)\u001b[39;49m\n\u001b[32m    937\u001b[39m     \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[32m    938\u001b[39m         \u001b[38;5;66;03m# Binary mode\u001b[39;00m\n\u001b[32m    939\u001b[39m         handle = \u001b[38;5;28mopen\u001b[39m(handle, ioargs.mode)\n",
+      "\u001b[31mFileNotFoundError\u001b[39m: [Errno 2] No such file or directory: 'dataset/ecommerce_sales.csv'"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "import plotly.express as px\n",
+    "import os\n",
+    "\n",
+    "# Set Plotting Styles\n",
+    "plt.style.use('fivethirtyeight')\n",
+    "sns.set_theme(style=\"whitegrid\")\n",
+    "\n",
+    "# 1. DATA LOADING\n",
+    "df = pd.read_csv('dataset/ecommerce_sales.csv')\n",
+    "\n",
+    "print(\"--- Initial Overview ---\")\n",
+    "print(df.info())\n",
+    "print(df.describe())\n",
+    "\n",
+    "# 2. DATA CLEANING\n",
+    "# Handle Duplicates\n",
+    "df.drop_duplicates(inplace=True)\n",
+    "\n",
+    "# Handle Missing Values\n",
+    "df['Sales'] = df['Sales'].fillna(df['Sales'].median())\n",
+    "df['Product_Category'] = df['Product_Category'].fillna('Other')\n",
+    "\n",
+    "# Convert Datatypes\n",
+    "df['Date'] = pd.to_datetime(df['Date'])\n",
+    "\n",
+    "# Detect Outliers (using IQR)\n",
+    "Q1 = df['Sales'].quantile(0.25)\n",
+    "Q3 = df['Sales'].quantile(0.75)\n",
+    "IQR = Q3 - Q1\n",
+    "lower_bound = Q1 - 1.5 * IQR\n",
+    "upper_bound = Q3 + 1.5 * IQR\n",
+    "outliers = df[(df['Sales'] < lower_bound) | (df['Sales'] > upper_bound)]\n",
+    "print(f\"Number of outliers detected in Sales: {len(outliers)}\")\n",
+    "\n",
+    "# 3. FEATURE ENGINEERING\n",
+    "df['Month'] = df['Date'].dt.month_name()\n",
+    "df['Year'] = df['Date'].dt.year\n",
+    "df['Profit_Margin'] = (df['Profit'] / df['Sales']) * 100\n",
+    "\n",
+    "# 4. DATA VISUALIZATION\n",
+    "\n",
+    "# A. Univariate: Distribution of Sales\n",
+    "plt.figure(figsize=(10, 6))\n",
+    "sns.histplot(df['Sales'], kde=True, color='teal')\n",
+    "plt.title('Distribution of Sales')\n",
+    "plt.savefig('visualizations/sales_distribution.png')\n",
+    "\n",
+    "# B. Bivariate: Profit vs Category\n",
+    "plt.figure(figsize=(12, 6))\n",
+    "sns.boxplot(x='Product_Category', y='Profit', data=df, palette='Set2')\n",
+    "plt.title('Profitability by Product Category')\n",
+    "plt.savefig('visualizations/profit_by_category.png')\n",
+    "\n",
+    "# C. Multivariate: Correlation Heatmap\n",
+    "plt.figure(figsize=(10, 8))\n",
+    "corr = df.select_dtypes(include=[np.number]).corr()\n",
+    "sns.heatmap(corr, annot=True, cmap='coolwarm', fmt=\".2f\")\n",
+    "plt.title('Correlation Matrix')\n",
+    "plt.savefig('visualizations/correlation_heatmap.png')\n",
+    "\n",
+    "# D. Trend Analysis: Sales over Months\n",
+    "monthly_sales = df.groupby('Month')['Sales'].sum().reindex([\n",
+    "    'January', 'February', 'March', 'April', 'May', 'June', \n",
+    "    'July', 'August', 'September', 'October', 'November', 'December'])\n",
+    "\n",
+    "plt.figure(figsize=(12, 6))\n",
+    "monthly_sales.plot(kind='line', marker='o', color='red')\n",
+    "plt.title('Total Sales Trend by Month')\n",
+    "plt.ylabel('Total Sales ($)')\n",
+    "plt.savefig('visualizations/monthly_trend.png')\n",
+    "\n",
+    "print(\"✅ Analysis Complete: Visualizations saved in visualizations/ folder\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

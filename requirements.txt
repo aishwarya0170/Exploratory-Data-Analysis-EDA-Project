@@ -1,0 +1,36 @@
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+st.set_page_config(page_title="Sales Dashboard", layout="wide")
+
+st.title("📊 E-Commerce Sales Insights Dashboard")
+st.markdown("Discover patterns in sales, profit, and customer behavior.")
+
+# Load Data
+df = pd.read_csv('dataset/ecommerce_sales.csv')
+df['Date'] = pd.to_datetime(df['Date'])
+
+# Sidebar Filters
+st.sidebar.header("Filter Data")
+region = st.sidebar.multiselect("Select Region:", options=df['Region'].unique(), default=df['Region'].unique())
+category = st.sidebar.multiselect("Select Category:", options=df['Product_Category'].unique(), default=df['Product_Category'].unique())
+
+df_selection = df.query("Region == @region & Product_Category == @category")
+
+# Main KPIs
+total_sales = df_selection['Sales'].sum()
+avg_profit = df_selection['Profit'].mean()
+
+col1, col2 = st.columns(2)
+col1.metric("Total Sales", f"${total_sales:,.2f}")
+col2.metric("Average Profit", f"${avg_profit:,.2f}")
+
+# Plotly Charts
+st.subheader("Sales by Product Category")
+fig_sales = px.bar(df_selection, x='Product_Category', y='Sales', color='Region', barmode='group')
+st.plotly_chart(fig_sales, use_container_width=True)
+
+st.subheader("Profit vs Sales Scatter Plot")
+fig_scatter = px.scatter(df_selection, x='Sales', y='Profit', size='Quantity', color='Product_Category', hover_name='Order_ID')
+st.plotly_chart(fig_scatter, use_container_width=True)
